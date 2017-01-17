@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+
+  "name": "Select and Save text",
+  "description": "This extension save the select text in browser into the computer",
+  "version": "1.0",
+
+
+  //It tell that when you click on the chrome extention icon on the browser what will be the default html
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/",
+    {"fileSystem": ["write"]}
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*","https://*/*"],//* Means it should run every where with the protocol http
+      "js": ["jquery-3.1.1.min.js","FileSaver.js","myscript.js"]//you can mention the multiple files using the coma
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  }
+}
+
+
